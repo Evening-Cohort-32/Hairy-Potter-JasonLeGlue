@@ -1,13 +1,14 @@
 // Imports go first
 import { makePottery } from "./PotteryWheel.js";
 import { firePottery } from "./Kiln.js";
+import { toSellOrNotToSell, usePottery } from "./PotteryCatalog.js";
 
 // Make 5 pieces of pottery at the wheel
-let mug = makePottery("Mug", 2, 4);
-let platter = makePottery("Platter", 5, 1);
-let sculpture = makePottery("Sculpture", 7, 10);
-let dish = makePottery("Dish", 3, 1);
-let cup = makePottery("Cup", 2, 3);
+const mug = makePottery("Mug", 2, 4);
+const platter = makePottery("Platter", 5, 1);
+const sculpture = makePottery("Sculpture", 7, 10);
+const dish = makePottery("Dish", 3, 1);
+const cup = makePottery("Cup", 2, 3);
 /*console.log(mug);
 console.log(platter);
 console.log(sculpture);
@@ -16,17 +17,28 @@ console.log(cup);
 */
 
 // Fire each piece of pottery in the kiln
-let firedMug = firePottery(mug, 2300);
-let firedPlatter = firePottery(platter, 2100);
-let firedSculpture = firePottery(sculpture, 2600);
-let firedDish = firePottery(dish, 1700);
-let firedCup = firePottery(cup, 2199);
-console.log(firedMug);
+const firedMug = firePottery(mug, 2300);
+const firedPlatter = firePottery(platter, 2100);
+const firedSculpture = firePottery(sculpture, 2000);
+const firedDish = firePottery(dish, 1700);
+const firedCup = firePottery(cup, 2199);
+/*console.log(firedMug);
 console.log(firedPlatter);
 console.log(firedSculpture);
 console.log(firedDish);
 console.log(firedCup);
+*/
 
 // Determine which ones should be sold, and their price
+const pricedMug = toSellOrNotToSell(firedMug);
+const pricedPlatter = toSellOrNotToSell(firedPlatter);
+const pricedSculpture = toSellOrNotToSell(firedSculpture);
+const pricedDish = toSellOrNotToSell(firedDish);
+const pricedCup = toSellOrNotToSell(firedCup);
+console.log(pricedMug);
+console.log(pricedPlatter);
+console.log(pricedSculpture);
+console.log(pricedDish);
+console.log(pricedCup);
 
 // Invoke the component function that renders the HTML list
