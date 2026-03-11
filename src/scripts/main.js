@@ -2,6 +2,7 @@
 import { makePottery } from "./PotteryWheel.js";
 import { firePottery } from "./Kiln.js";
 import { toSellOrNotToSell, usePottery } from "./PotteryCatalog.js";
+import { potteryList } from "./PotteryList.js";
 
 // Make 5 pieces of pottery at the wheel
 const mug = makePottery("Mug", 2, 4);
@@ -35,10 +36,24 @@ const pricedPlatter = toSellOrNotToSell(firedPlatter);
 const pricedSculpture = toSellOrNotToSell(firedSculpture);
 const pricedDish = toSellOrNotToSell(firedDish);
 const pricedCup = toSellOrNotToSell(firedCup);
+
+/*
 console.log(pricedMug);
 console.log(pricedPlatter);
 console.log(pricedSculpture);
 console.log(pricedDish);
 console.log(pricedCup);
+console.log(usePottery());
+*/
 
 // Invoke the component function that renders the HTML list
+const potteryArray = usePottery();
+console.log(potteryArray);
+const potteryHTML = potteryList(potteryArray);
+console.log(potteryHTML);
+const potteryListClass = document.querySelector(".pottery__list");
+if (potteryListClass) {
+  potteryListClass.innerHTML = potteryHTML;
+} else {
+  console.log("No element with class 'pottery__list' found.");
+}
