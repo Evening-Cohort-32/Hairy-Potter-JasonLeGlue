@@ -114,18 +114,33 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
-
 ## Vocabulary and Understanding
 
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
-   > Your answer here
+
+   > First I assigned the return value of usePottery() to the variable potteryArray to get the array of sellable pottery.
+
+   Then I assigned the return value of potteryList(potteryArray) to the variable potteryHTML. This iterated through the array and placed the proper values in a template literal written in the desired HTML format.
+
+   After I called document.querySelector(".pottery\_\_list") to select the article element I planned to display the potteryHTML in, and assigned the return value to the variable potteryListClass.
+
+   Finally I made an if/else statement where if potteryListClass was true- as in, if my querySelector worked and located ".pottery\_\_list", then it would update potteryListClass' html using .innerHTML to our potteryHTML. Otherwise it would log a message to the console saying the element couldn't be found.
+
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/ca629f3e841b40de808981e5e76974d0
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
-   > Your answer here
+
+   > It's my understanding that it's better to write functions with one purpose.
+
+   In this scenario, it would be possible to make pottery, but never fire it. Or to fire pottery that you don't intend to sell or display on the website. Having functions with each process separated makes this possible.
+
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
-   > Your answer here
+
+   > In toSellOrNotToSell() I have an if statement checking if the pottery is cracked. In this scenario, if it is cracked, it returns a console log letting me know, and doesn't assign a price. I would remove this, and allow the pottery to be priced.
+
+   Then, I have an if statement that only pushes the pottery to the array (indicating it is possible to sell) if it is not cracked. Instead I would change it to where, if the pottery is cracked, I would apply a $2.50 discount to the price, and push the pottery to the array outside of the if statement.
+
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/4151a948ab3c44e7aa11f751812ee6eb?live_rewind=1

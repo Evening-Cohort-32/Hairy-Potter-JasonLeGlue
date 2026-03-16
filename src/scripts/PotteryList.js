@@ -9,6 +9,5 @@ export const potteryList = (array) => {
   <div class="pottery__price">Price is ${pottery.price}</div>
 </section>`;
   }
-
   return potteryHTML;
 };
